@@ -23,43 +23,28 @@ public class PeliculasController {
     @Autowired
     private PeliculasService peliculasService;
     
-    //ENDPOINT Local
-    // http://localhost:8080/api/peliculas/getAllPeliculas
+
     @GetMapping("/getAllPeliculas")
     public List<Peliculas> getAll(){
         return peliculasService.getPeliculas();
     }
 
 
-    //ENDPOINT Local
-    // http://localhost:8080/api/peliculas/getPeliculaById/
+
     @GetMapping("/getPeliculaById/{id}")
     public Optional<Peliculas> obtenerPeliculaPorId(@PathVariable Long id){
         return peliculasService.obtenerPeliculaPorId(id);
     }
 
 
-    //ENDPOINT Local
-    // http://localhost:8080/api/peliculas/postPelicula
 
-    //EJEMPLO JSON
-    // {
-    //     "nombrePelicula": "Top gun",
-    //     "genero": "Accion",
-    //     "duracion": "150 minutos",
-    //     "añoLanzamiento": 1994 ,
-    //     "sinopsis": "Prueba sipnosis de top gun",
-    //     "nombreDirector": "Tom Cruise"
-    
-    // }
     @PostMapping("/postPelicula")
     public Peliculas guardarPelicula(@RequestBody Peliculas pelicula){
         return peliculasService.agregarPelicula(pelicula);
     }
 
 
-    //ENDPOINT Local
-    // http://localhost:8080/api/peliculas/deletePeliculaById/
+
     @DeleteMapping("/deletePeliculaById/{id}")
     public String eliminarPelicula(@PathVariable Long id){
         Boolean eliminar = peliculasService.eliminarPelicula(id);
@@ -71,8 +56,7 @@ public class PeliculasController {
     } 
 
 
-    //ENDPOINT Local
-    // http://localhost:8080/api/peliculas/actualizarPelicula/
+
     @PutMapping("actualizarPelicula/{id}")
     public Peliculas actualizarPelicula(@PathVariable Long id, @RequestBody Peliculas pelicula){
         return peliculasService.actualizarPelicula(id, pelicula);
